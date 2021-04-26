@@ -1,0 +1,10 @@
+//maven
+clean package -pl './yls-finance/yls-finance-web' -am -Dmaven.test.skip=true -P dev
+//jenkins配置脚本的案例
+OLD_BUILD_ID=$BUILD_ID
+echo $OLD_BUILD_ID
+BUILD_ID=DONTKILLME
+/usr/local/jenkins-deploy/remote-publish-jar-without-check.sh 'NF-MODULE-FINANCE' '192.168.1.40' '8083' '/opt/application/yls-finance' 'yls-finance' '-Xms128m -Xmx128m'
+BUILD_ID=$OLD_BUILD_ID
+echo $BUILD_ID
+sleep 5

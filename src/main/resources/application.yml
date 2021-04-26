@@ -1,0 +1,21 @@
+server:
+  port: 9999
+  servlet:
+    context-path: /restful-user
+spring:
+  profiles:
+    active: pro
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 30MB
+  devtools:
+    restart:
+      enabled: true
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml   #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: com.ssy.restfuluser.bean  # 注意：对应实体类的路径
+### Swagger开关配置参数
+swagger:
+  enable: true
